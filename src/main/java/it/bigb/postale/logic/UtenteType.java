@@ -9,5 +9,6 @@ package it.bigb.postale.logic;
  * @author Matteo
  */
 public enum UtenteType {
-    
+    INVALIDO,
+    GRAVIDANZA;
 }
