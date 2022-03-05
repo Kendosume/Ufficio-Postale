@@ -14,47 +14,66 @@ public class Utente {
     private int annoNascita;
     private String numeroCellulare;
     private UtenteType utenteType;
+    public static final String NO_NAME = "unknown";
+    public static final String NO_SURNAME = "unknown";
+    public static final int MAX_AGE = 110;
 
     public Utente() {
     }
 
     public Utente(String nome, String cognome, int annoNascita, String numeroCellulare, UtenteType utenteType) {
-        this.nome = nome;
-        this.cognome = cognome;
-        this.annoNascita = annoNascita;
-        this.numeroCellulare = numeroCellulare;
-        this.utenteType = utenteType;
+        this.setNome(nome);
+        this.setCognome(cognome);
+        this.setAnnoNascita(annoNascita);
+        this.setNumeroCellulare(numeroCellulare);
+        this.setUtenteType(utenteType);
+        
     }
 
     public String getNome() {
         return nome;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public final void setNome(String nome) {
+        if(nome != null && ! nome.isEmpty()){
+            this.nome = nome;
+        }
+        else{
+            this.nome = NO_NAME;
+        }
     }
 
     public String getCognome() {
         return cognome;
     }
 
-    public void setCognome(String cognome) {
-        this.cognome = cognome;
+    public final void setCognome(String cognome) {
+        if(cognome != null && ! cognome.isEmpty()){
+            this.cognome = cognome;
+        }
+        else{
+            this.cognome = NO_SURNAME;
+        }
     }
 
     public int getAnnoNascita() {
         return annoNascita;
     }
 
-    public void setAnnoNascita(int annoNascita) {
-        this.annoNascita = annoNascita;
+    public final void setAnnoNascita(int annoNascita) {
+        if(annoNascita > 0 && annoNascita <= MAX_AGE ){
+            this.annoNascita = annoNascita;
+        }
+        else{
+            this.annoNascita = -1;
+        }
     }
 
     public String getNumeroCellulare() {
         return numeroCellulare;
     }
 
-    public void setNumeroCellulare(String numeroCellulare) {
+    public final void setNumeroCellulare(String numeroCellulare) {
         this.numeroCellulare = numeroCellulare;
     }
 
@@ -62,7 +81,7 @@ public class Utente {
         return utenteType;
     }
 
-    public void setUtenteType(UtenteType utenteType) {
+    public final void setUtenteType(UtenteType utenteType) {
         this.utenteType = utenteType;
     }
     
