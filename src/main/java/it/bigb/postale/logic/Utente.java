@@ -16,6 +16,7 @@ public class Utente {
     private UtenteType utenteType;
     public static final String NO_NAME = "unknown";
     public static final String NO_SURNAME = "unknown";
+    public static final String INVALID_NUMBER = "phone number is invalid";
     public static final int MAX_AGE = 110;
 
     public Utente() {
@@ -74,7 +75,12 @@ public class Utente {
     }
 
     public final void setNumeroCellulare(String numeroCellulare) {
-        this.numeroCellulare = numeroCellulare;
+        if (numeroCellulare.matches("^\\+[1-9]{2}.\\d{1,11}$")){
+            this.numeroCellulare = numeroCellulare;
+        }else {
+            this.numeroCellulare=INVALID_NUMBER;
+        }
+        
     }
 
     public UtenteType getUtenteType() {
